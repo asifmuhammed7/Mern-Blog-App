@@ -6,6 +6,8 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import Projects from './pages/Projects'
 import Header from './components/Header'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function App() {
   return (
     <BrowserRouter>
@@ -15,8 +17,9 @@ export default function App() {
         <Route path='/about' element={<About/>}/>
         <Route path='/sign-in' element={<SignIn/>}/>
         <Route path='/sign-up' element={<SignUp/>}/>
-        <Route path='/projects' element={<Projects/>}/>
+        <Route path='/projects' element={<Projects/>}/>      
       </Routes>
+      <ToastContainer />
     </BrowserRouter>
   )
 }

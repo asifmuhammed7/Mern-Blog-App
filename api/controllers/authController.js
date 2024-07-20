@@ -5,6 +5,9 @@ export const signup = async (req, res) => {
     const { username, email, password } = req.body;
     handleInputErrors(username, email, password);
     const user = await User.findOne({ email });
+    if(user){
+      return res.status(400).json({error:"Username already exists"})
+    }
     if (!user) {
       const hashedPassword = bcryptjs.hashSync(password, 10);
       const newUser = new User({
@@ -15,7 +18,7 @@ export const signup = async (req, res) => {
       await newUser.save();
     }
 
-    return res.status(400).json({ message: "signup successfully!" });
+    return res.status(201).json({ message: "signup successfully!" });
   } catch (error) {
     console.log(error.message);
     return res.status(500).json({ message: "Server error" });
