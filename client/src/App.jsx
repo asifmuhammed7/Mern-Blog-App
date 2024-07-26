@@ -8,6 +8,7 @@ import Projects from './pages/Projects'
 import Header from './components/Header'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './components/Footer'
 export default function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ export default function App() {
         <Route path='/sign-up' element={<SignUp/>}/>
         <Route path='/projects' element={<Projects/>}/>      
       </Routes>
+      <Footer />
       <ToastContainer />
     </BrowserRouter>
   )
